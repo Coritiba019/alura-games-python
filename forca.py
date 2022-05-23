@@ -40,8 +40,8 @@ def imprime_mensagem_abertura():
     print("*********************************")
     
 
-def carrega_palavra_secreta():
-    arquivo = open("palavras.txt", "r")
+def carrega_palavra_secreta(nome_arquivo="palavras.txt", primeira_linha_valida=0):
+    arquivo = open(nome_arquivo, "r")
     palavras = []
 
     for linha in arquivo:
@@ -50,7 +50,7 @@ def carrega_palavra_secreta():
 
     arquivo.close()
 
-    numero = random.randrange(0, len(palavras))
+    numero = random.randrange(primeira_linha_valida, len(palavras))
     palavra_secreta = palavras[numero].upper()
     
     return palavra_secreta
